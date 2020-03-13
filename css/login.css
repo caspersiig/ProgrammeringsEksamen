@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.column {
+    display: flex;
+    flex: column;
+    margin-bottom: 20px;
+}
+
+.button {
+    border: 0px;
+    background-color: aqua;
+}
+
+.button:hover {
+    background-color: blue;
+}

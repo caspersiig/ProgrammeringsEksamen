@@ -6,22 +6,31 @@
     </head>
     <body>
         <form action="">
-            <div class="container">
+            <div class="signin">
+            <h1>Sign In</h1>
+            <hr>
                 <div class="column">
-                    <label class="username" for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="uname"><b>Username</b></label>
+                    <div class="space">
+                        <input type="username" placeholder="Enter Username" name="uname" required>
+                    </div>
                 </div>
                 
                 <div class="column">
-                    <label class="password" for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label for="psw"><b>Password</b></label>
+                    <div class="space">
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    </div>
                 </div>
+                    <hr>
 
                 <button type="submit" class="button">Login</button>
 
-                <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
+                <div class="remember">
+                    <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
             </div>
         </form>
     </body>

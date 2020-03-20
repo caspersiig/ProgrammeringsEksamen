@@ -3,24 +3,26 @@
     <head>
         <title>Login</title>
         <link href="css/login.css" rel="stylesheet" type="text/css"></link>
+        <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        
     </head>
     <body>
         <div class="page">
-        <form action="">
+        <form action="" id="loginForm" onsubmit="loginData(event)"> <!-- i "action" skal der skrives, det sted, daten skal sendes til-->
             <div class="signin">
             <h1>Sign In</h1>
             <hr>
                 <div class="column">
                     <label for="uname"><b>Username</b></label>
                     <div class="space">
-                        <input type="username" placeholder="Enter Username" name="uname" required>
+                        <input type="username" placeholder="Enter Username" name="uname" id="uname" required>
                     </div>
                 </div>
                 
                 <div class="column">
                     <label for="psw"><b>Password</b></label>
                     <div class="space">
-                        <input type="password" placeholder="Enter Password" name="psw" required>
+                        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
                     </div>
                 </div>
                     <hr>
@@ -39,5 +41,42 @@
             </div>
         </form>
         </div>
+
+        <script>
+            function loginData(event){
+                event.preventDefault();
+                var dataUname = document.getElementById('uname');
+                var dataPass = document.getElementById('psw');
+                console.log("Username: "+ dataUname.value + " Password: " + dataPass.value);
+            }
+        </script>
     </body>
+
+
+
+    <!--
+        Jeg skal implementere følgende senere hen for at kunne lave et successfuldt login: Det er skrevet i jQuery!!
+            logIn: function(e) {
+      var self = this;
+      var username = this.$("#login-username").val();
+      var password = this.$("#login-password").val();
+      
+      Parse.User.logIn(username, password, {
+        success: function(user) {
+          new ManageTodosView();
+          self.undelegateEvents();
+          delete self;
+        },
+
+        error: function(user, error) {
+          self.$(".login-form .error").html("Invalid username or password. Please try again.").show();
+          this.$(".login-form button").removeAttr("disabled");
+        }
+      });
+
+      this.$(".login-form button").attr("disabled", "disabled");
+
+      return false;
+    }
+    -->
 </html>

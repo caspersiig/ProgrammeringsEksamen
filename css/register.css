@@ -1,0 +1,28 @@
+.register {
+    width: 30%;
+}
+
+input[type=email],
+input[type=password] {
+    width: 70%;
+    padding: 7px;
+    margin: 2px 0 15px 0;
+    border-radius: 5px;
+    background: rgb(236, 234, 234);
+}
+
+input[type=email]:focus,
+input[type=password]:focus {
+    background-color: rgb(202, 198, 198);
+    outline: none;
+}
+
+.registerbtn {
+    background-color: lightskyblue;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+.registerbtn:hover {
+    opacity: 0.9;
+}

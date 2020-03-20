@@ -1,0 +1,29 @@
+.signin {
+    width: 30%;
+}
+
+input[type=username],
+input[type=password] {
+    width: 70%;
+    padding: 7px;
+    margin: 2px 0 10px 0;
+    border-radius: 5px;
+    background: rgb(236, 234, 234);
+}
+
+input[type=username]:focus,
+input[type=password]:focus {
+    background-color: rgb(202, 198, 198);
+    outline: none;
+}
+
+.button {
+    width: 50%;
+    background-color: lightskyblue;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    opacity: 0.9;
+}

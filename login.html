@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Login</title>
-        <link href="css/login.css" rel="stylesheet" type="text/css"></link>
-        <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        
-    </head>
-    <body>
-        <div class="page">
-        <form action="" id="loginForm" onsubmit="loginData(event)"> <!-- i "action" skal der skrives, det sted, daten skal sendes til-->
+
+<head>
+    <title>Login</title>
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    </link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <form action="" id="loginForm" onsubmit="loginData(event)">
+            <!-- i "action" skal der skrives, det sted, daten skal sendes til-->
             <div class="signin">
-            <h1>Sign In</h1>
-            <hr>
+                <h1>Sign In</h1>
+                <hr>
                 <div class="column">
                     <label for="uname"><b>Username</b></label>
                     <div class="space">
                         <input type="username" placeholder="Enter Username" name="uname" id="uname" required>
                     </div>
                 </div>
-                
+
                 <div class="column">
                     <label for="psw"><b>Password</b></label>
                     <div class="space">
                         <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
                     </div>
                 </div>
-                    <hr>
+                <hr>
 
                 <button type="submit" class="button">Login</button>
 
                 <div class="remember">
                     <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
                 </div>
 
@@ -40,21 +44,28 @@
                 </div>
             </div>
         </form>
-        </div>
+    </div>
 
-        <script>
-            function loginData(event){
-                event.preventDefault();
-                var dataUname = document.getElementById('uname');
-                var dataPass = document.getElementById('psw');
-                console.log("Username: "+ dataUname.value + " Password: " + dataPass.value);
+    <script>
+        var socket = io.connect('http://185.107.15.247:8080');
+
+        function loginData(event) {
+            event.preventDefault();
+            var dataUname = document.getElementById('uname');
+            var dataPass = document.getElementById('psw');
+            console.log("Username: " + dataUname.value + " Password: " + dataPass.value);
+            data = {
+                username: dataUname.value,
+                password: dataPass.value
             }
-        </script>
-    </body>
+            socket.emit("login", data);
+        }
+    </script>
+</body>
 
 
 
-    <!--
+<!--
         Jeg skal implementere følgende senere hen for at kunne lave et successfuldt login: Det er skrevet i jQuery!!
             logIn: function(e) {
       var self = this;
@@ -79,4 +90,5 @@
       return false;
     }
     -->
+
 </html>

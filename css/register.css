@@ -1,10 +1,15 @@
-.register {
-    width: 30%;
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.page {
+    width: 250px;
 }
 
 input[type=email],
 input[type=password] {
-    width: 70%;
+    width: 100%;
     padding: 7px;
     margin: 2px 0 15px 0;
     border-radius: 5px;

@@ -1,10 +1,15 @@
-.signin {
-    width: 30%;
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.page {
+    width: 250px;
 }
 
 input[type=username],
 input[type=password] {
-    width: 70%;
+    width: 90%;
     padding: 7px;
     margin: 2px 0 10px 0;
     border-radius: 5px;

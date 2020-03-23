@@ -58,9 +58,10 @@
   <script>
       function regiData(event){
           event.preventDefault();
+          var dataUname = document.getElementById('uname');
           var dataPass = document.getElementById('psw');
           var dataEmail = document.getElementById('email')
-          console.log("Username: "+ dataEmail.value);
+          console.log("Username: "+ dataUname.value);
           console.log("Password: " + dataPass.value);
           console.log("Email: " + dataEmail.value);
       }

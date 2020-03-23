@@ -59,6 +59,10 @@
                 password: dataPass.value
             }
             socket.emit("login", data);
+
+            socket.on("accept", ()=>{});
+            socket.on("fail", ()=>{});
+
         }
     </script>
 </body>

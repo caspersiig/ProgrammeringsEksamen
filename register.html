@@ -55,7 +55,11 @@
     </form>
   </div>
 
+
+  
   <script>
+    var socket = io.connect('http://185.107.15.247:8080');
+
       function regiData(event){
           event.preventDefault();
           var dataUname = document.getElementById('uname');
@@ -64,6 +68,21 @@
           console.log("Username: "+ dataUname.value);
           console.log("Password: " + dataPass.value);
           console.log("Email: " + dataEmail.value);
+
+            dataRegi = {
+                username: dataUname.value,
+                password: dataPass.value,
+                email: dataEmail.value
+            }
+
+          socket.emit("register", dataRegi);
+
+          socket.on("regiSuccess", ()=>{});
+          socket.on("regiFail", ()=>{});
+
+
+
+
       }
     
   </script>

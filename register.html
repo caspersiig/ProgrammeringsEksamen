@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Register</title>
-    <link href="css/register.css" rel="stylesheet" type="text/css"></link>
-  </head>
-  <body>
-    <div class="page">
-    <form action="">
+
+<head>
+  <title>Register</title>
+  <link href="css/register.css" rel="stylesheet" type="text/css">
+  </link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <form action="" id="regiForm" onsubmit="regiData(event)">
+      <!-- der skal i "action" stå destinationen for det sted, hvor login informationen ligger / skal ligge-->
       <div class="register">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
+        <div class="column">
+          <label for="email"><b>Email</b></label>
+          <div calss="space">
+            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+          </div>
+        </div>
+
           <div class="column">
-            <label for="email"><b>Email</b></label>
-              <div calss="space">
-                <input type="email" placeholder="Enter Email" name="email" required>
+            <label for="username"><b>Username</b></label>
+              <div class="space">
+                <input type="username" placeholder="Enter Username" name="uname" id="uname" required>
               </div>
           </div>
-
-          <div class="column">  
-            <label for="password"><b>Password</b></label>
-            <div class="space">
-              <input type="password" placeholder="Enter Password" name="psw" required>
-            </div>
+      
+        <div class="column">
+          <label for="password"><b>Password</b></label>
+          <div class="space">
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
           </div>
+        </div>
 
-          <div class="column">
-            <label for="repeat password"><b>Repeat Password</b></label>
-            <div class="space">
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-            </div>
+        <div class="column">
+          <label for="repeat password"><b>Repeat Password</b></label>
+          <div class="space">
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="pswRep" required>
           </div>
-            <hr>
+        </div>
+        <hr>
 
-          <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" class="registerbtn">Register</button>
       </div>
 
       <div class="signin">
         <p>Already have an account? <a href="login.html">Sign in</a>.</p>
       </div>
     </form>
-    </div>
-  </body>
+  </div>
+
+  <script>
+      function regiData(event){
+          event.preventDefault();
+          var dataUname = document.getElementById('uname');
+          var dataPass = document.getElementById('psw');
+          var dataEmail = document.getElementById('email')
+          console.log("Username: "+ dataUname.value);
+          console.log("Password: " + dataPass.value);
+          console.log("Email: " + dataEmail.value);
+      }
+    
+  </script>
+</body>
+
 </html>

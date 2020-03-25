@@ -32,3 +32,8 @@ input[type=password]:focus {
 .button:hover {
     opacity: 0.9;
 }
+
+.wrong {
+    color: red;
+    display: none;
+}

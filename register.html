@@ -81,8 +81,13 @@
 
           socket.emit("register", dataRegi);
 
-          socket.on("regiSuccess", ()=>{});
-          socket.on("regiFail", ()=>{});
+          socket.on("regiSuccess", ()=>{
+            location.replace("login.html");
+          });
+
+          socket.on("regiFail", ()=>{
+            location.reload();
+          });
 
 
 

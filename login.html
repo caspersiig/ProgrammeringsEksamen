@@ -30,8 +30,8 @@
                     </div>
                 </div>
 
-                <div class="wrong">
-                <p>Your Username or Password is wrong. Try typing something else.</p>
+                <div class="wrong" id="wrongPass">
+                <p id="wrongMsg"></p>
                 </div>
 
                 <hr>
@@ -65,8 +65,19 @@
             }
             socket.emit("login", data);
 
-            socket.on("accept", ()=>{});
-            socket.on("fail", ()=>{});
+            socket.on("accept", ()=>{
+                location.replace("mainPage.html");
+
+            });
+            socket.on("fail", ()=>{
+
+                if(alert('Your Username or Password is wrong. Try typing something else.')){
+
+              } else {
+                  window.location.reload(true);
+              }
+
+            });
 
         }
     </script>

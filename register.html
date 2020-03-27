@@ -82,11 +82,11 @@
           socket.emit("register", dataRegi);
 
           socket.on("regiSuccess", ()=>{
-            location.replace("login.html");
+            window.location.href = "login.html";
           });
 
           socket.on("regiFail", ()=>{
-            location.reload();
+            window.location.reload(true);
           });
 
 

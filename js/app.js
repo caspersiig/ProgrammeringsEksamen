@@ -1,5 +1,5 @@
 $(function(){
-    var socket = io.connect('http://0.0.0.0:5001');
+    var socket = io.connect('http://185.107.15.247:8080');
     
     socket.on('connect', function(){
       var delivery = new Delivery(socket);

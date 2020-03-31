@@ -13,32 +13,130 @@
             <nav>
                 <div class="topnav">
                     <ul>
-                        <li id="home"><a href="#">Home</a></li>
-                        <li id="market"><a href="#">Market</a></li>
-                        <li id="publish"><a href="#">Publish software</a></li>
+                        <li id="home"><a href="#hjem">Home</a></li>
+                        <li id="market"><a href="#marked">Market</a></li>
+                        <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
                         <li id="profile" class="dropdown">
                             <a href="javascript:void(0)" class="dropbtn">My Profile</a>
                                 <div class="dropdown-content">
-                                    <a href="#">My Profile</a>
-                                    <a href="#">Sign Out</a>
+                                    <a href="#minprofil">My Profile</a>
+                                    <a href="#logud">Sign Out</a>
                                 </div>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
+/* yes */
 
-        <div id="home">
-            <h4>In progress</h4>
-        </div>
-            
-        <div id="market">
-            <h4>In progress</h4>
-            <input type="search" placeholder="Search..">
-        </div>
+
+<div class="page" id="hjem">
+    <div class="wrapper">
+        <nav>
+            <div class="topnav">
+                <ul>
+                    <li id="home"><a href="#hjem">Home</a></li>
+                    <li id="market"><a href="#marked">Market</a></li>
+                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
+                    <li id="profile" class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
+                            <div class="dropdown-content">
+                                <a href="#minprofil">My Profile</a>
+                                <a href="#">Sign Out</a>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    velkommen til Casper PD vi håber i nyder jeres ophold
+
+</div>
+
+<div class="page" id="marked">
+    <div class="wrapper">
+        <nav>
+            <div class="topnav">
+                <ul>
+                    <li id="home"><a href="#hjem">Home</a></li>
+                    <li id="market"><a href="#marked">Market</a></li>
+                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
+                    <li id="profile" class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
+                            <div class="dropdown-content">
+                                <a href="#minprofil">My Profile</a>
+                                <a href="#">Sign Out</a>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+  
+    <h1>Here are all the program for sale</h1>
+
+</div>
+
+<div class="page" id="frigørsoftware">
+    <div class="wrapper">
+        <nav>
+            <div class="topnav">
+                <ul>
+                    <li id="home"><a href="#hjem">Home</a></li>
+                    <li id="market"><a href="#marked">Market</a></li>
+                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
+                    <li id="profile" class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
+                            <div class="dropdown-content">
+                                <a href="#minprofil">My Profile</a>
+                                <a href="#">Sign Out</a>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <h2>Are you a developer?</h2>
+    <h5>then you sure arrived at the right local
+        with just a few clicks your program for
+        sale to the millions
+    </h5>
+    <p>remember to make the title something catchy</p>
+    <input placeholder="title for you program" name="titel" id="titel" required>
+    <p>Please seperate features with a ,</p>
+    <p>Like writing,mathematics,javascript</p>
+    <input placeholder="Features" name="Features" id="Features" required>
+    <p>Please make you description as descriptive as posible</p>
+    <input placeholder="Description" name="description" id="description" required>
+    <button onclick="upload()">upload program</button>
+</div>
+
+<div class="page" id="minprofil">
+    <div class="wrapper">
+        <nav>
+            <div class="topnav">
+                <ul>
+                    <li id="home"><a href="#hjem">Home</a></li>
+                    <li id="market"><a href="#marked">Market</a></li>
+                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
+                    <li id="profile" class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
+                            <div class="dropdown-content">
+                                <a href="#minprofil">My Profile</a>
+                            <a href="#" onclick="logud()">Sign Out</a>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    her kan du ændre dine account indstillinger :D
+</div>
 
         <script>
-    
+    logud = () =>{location.replace("login.html");}
+
+    upload = () => {// lav den der opload ting ting #alexander :D}
         </script>
   </body>
 </html>

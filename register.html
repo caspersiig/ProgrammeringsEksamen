@@ -11,7 +11,7 @@
 
 <body>
   <div class="page">
-    <form action="" id="regiForm" onsubmit="regiData(event)">
+    <form action="" id="regiForm" onSubmit="regiData(event)">
       <!-- der skal i "action" stå destinationen for det sted, hvor login informationen ligger / skal ligge-->
       <div class="register">
         <h1>Register</h1>
@@ -82,11 +82,11 @@
           socket.emit("register", dataRegi);
 
           socket.on("regiSuccess", ()=>{
-            location.replace("login.html");
+            window.location.replace("login.html")
           });
 
           socket.on("regiFail", ()=>{
-            location.reload();
+            window.location.reload(true);
           });
 
 

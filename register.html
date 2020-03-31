@@ -11,7 +11,7 @@
 
 <body>
   <div class="page">
-    <form action="" id="regiForm" onsubmit="regiData(event)">
+    <form action="" id="regiForm" onSubmit="regiData(event)">
       <!-- der skal i "action" stå destinationen for det sted, hvor login informationen ligger / skal ligge-->
       <div class="register">
         <h1>Register</h1>
@@ -44,6 +44,10 @@
             <input type="password" placeholder="Repeat Password" name="psw-repeat" id="pswRep" required>
           </div>
         </div>
+
+        <div class="used" id="inUse">
+          <p>Username already in use</p>
+        </div>
         <hr>
 
         <button type="submit" class="registerbtn">Register</button>
@@ -55,20 +59,41 @@
     </form>
   </div>
 
+
+  
   <script>
     var socket = io.connect('http://185.107.15.247:8080');
 
-    function loginData(event) {
-      event.preventDefault();
-      var dataUname = document.getElementById('uname');
-      var dataPass = document.getElementById('psw');
-      console.log("Username: " + dataUname.value + " Password: " + dataPass.value);
-      data = {
-        username: dataUname.value,
-        password: dataPass.value
+      function regiData(event){
+          event.preventDefault();
+          var dataUname = document.getElementById('uname');
+          var dataPass = document.getElementById('psw');
+          var dataEmail = document.getElementById('email')
+          console.log("Username: "+ dataUname.value);
+          console.log("Password: " + dataPass.value);
+          console.log("Email: " + dataEmail.value);
+
+            dataRegi = {
+                username: dataUname.value,
+                password: dataPass.value,
+                email: dataEmail.value
+            }
+
+          socket.emit("register", dataRegi);
+
+          socket.on("regiSuccess", ()=>{
+            window.location.replace("login.html")
+          });
+
+          socket.on("regiFail", ()=>{
+            window.location.reload(true);
+          });
+
+
+
+
       }
-      socket.emit("login", data);
-    }
+    
   </script>
 </body>
 

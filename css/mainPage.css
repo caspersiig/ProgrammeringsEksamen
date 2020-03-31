@@ -6,11 +6,11 @@ ul {
     background-color: royalblue;
 }
 
-.topnav {
+nav li {
     float: left;
 }
 
-.topnav a, .dropbtn {
+li a, .dropbtn {
     display: inline-block;
     color: black;
     text-align: center;
@@ -19,11 +19,11 @@ ul {
     font-size: 20px;
 }
 
-.topnav a:hover, .profile:hover .dropbtn {
+li a:hover, .profile:hover .dropbtn {
     background-color: blue;
 }
 
-.dropdown {
+li.dropdown {
         display: inline-block;
 }
 

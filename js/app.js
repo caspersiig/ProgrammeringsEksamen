@@ -7,6 +7,19 @@ $(function(){
       delivery.on('delivery.connect',function(delivery){
         $("input[type=submit]").click(function(evt){
           var file = $("input[type=file]")[0].files[0];
+      
+              var dataTitle = document.getElementById('titel');
+              var dataFeature = document.getElementById('features');
+              var dataDescription = document.getElementById('description');
+      
+                fileData = {
+                  title: dataTitle.value,
+                  feature: dataFeature.value,
+                  description: dataDescription.value
+                }
+      
+                socket.emit("fileData", fileData);
+
           delivery.send(file);
           evt.preventDefault();
         });

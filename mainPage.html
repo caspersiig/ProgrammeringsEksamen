@@ -7,6 +7,8 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/delivery.js"></script>
   </head>
   <body>
         <div class="wrapper">
@@ -108,7 +110,12 @@
     <input placeholder="Features" name="Features" id="Features" required>
     <p>Please make you description as descriptive as posible</p>
     <input placeholder="Description" name="description" id="description" required>
-    <button onclick="upload()">upload program</button>
+    <div id="wrapper">
+        <form>
+            <input type="file">
+            <input type="submit" value="Upload File">
+        </form>
+        <div id="outcome"></div>
 </div>
 
 <div class="page" id="minprofil">

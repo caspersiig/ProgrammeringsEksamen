@@ -10,172 +10,43 @@
         <script src="js/app.js"></script>
         <script src="js/delivery.js"></script>
   </head>
-  <body>
-        <div class="wrapper">
-            <nav>
-                <div class="topnav">
-                    <ul>
-                        <li id="home"><a href="#hjem">Home</a></li>
-                        <li id="market"><a href="#marked">Market</a></li>
-                        <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
-                        <li id="profile" class="dropdown">
-                            <a href="javascript:void(0)" class="dropbtn">My Profile</a>
-                                <div class="dropdown-content">
-                                    <a href="#minprofil">My Profile</a>
-                                    <a href="#logud">Sign Out</a>
-                                </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+  <body onload="startup()">
+    <nav>
+        <div class="topnav">
+            <ul>
+                <li id="home"><a class="nav-item" href="home.html">Home</a></li>
+                <li id="market"><a class="nav-item" href="market.html">Market</a></li>
+                <li id="publish"><a class="nav-item" href="publish.html">Publish software</a></li>
+                <li id="profile" class="dropdown">
+                    <a class="dropbtn">My Profile</a>
+                        <div class="dropdown-content">
+                            <a class="nav-item" href="profile.html">My Profile</a>
+                            <a onclick="signOut()">Sign Out</a>
+                        </div>
+                </li>
+            </ul>
         </div>
-/* yes */
+    </nav>
+    <div id="page">
 
-
-<div class="page" id="hjem">
-    <div class="wrapper">
-        <nav>
-            <div class="topnav">
-                <ul>
-                    <li id="home"><a href="#hjem">Home</a></li>
-                    <li id="market"><a href="#marked">Market</a></li>
-                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
-                    <li id="profile" class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
-                            <div class="dropdown-content">
-                                <a href="#minprofil">My Profile</a>
-                                <a href="#">Sign Out</a>
-                            </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
     </div>
-    <h1>Welcome to Casper PD</h1>
-    <h3>We hope you have a great experince with our site</h3>
 
-</div>
+    <script>
+        function startup(){
+            //Loader home-page på startup
+            $("#page").load("mainPageContent/home.html");
+        }
 
-<div class="page" id="marked">
-    <div class="wrapper">
-        <nav>
-            <div class="topnav">
-                <ul>
-                    <li id="home"><a href="#hjem">Home</a></li>
-                    <li id="market"><a href="#marked">Market</a></li>
-                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
-                    <li id="profile" class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
-                            <div class="dropdown-content">
-                                <a href="#minprofil">My Profile</a>
-                                <a href="#">Sign Out</a>
-                            </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-  
-    <h1>Here are all the program for sale</h1>
+        $(".nav-item").click(function (event){
+            //Undgå at linket tager dig til en ny side
+            event.preventDefault();
+            
+            //Loader html'en der er på href-linket
+            $("#page").load("mainPageContent/" + $(this).attr("href"));
+        });
 
-</div>
+        signOut = () =>{location.replace("login.html");}
+    </script>
 
-<div class="page" id="frigørsoftware">
-    <div class="wrapper">
-        <nav>
-            <div class="topnav">
-                <ul>
-                    <li id="home"><a href="#hjem">Home</a></li>
-                    <li id="market"><a href="#marked">Market</a></li>
-                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
-                    <li id="profile" class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
-                            <div class="dropdown-content">
-                                <a href="#minprofil">My Profile</a>
-                                <a href="#">Sign Out</a>
-                            </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <h2>Are you a developer?</h2>
-    <h5>Then you sure arrived at the right local
-        with just a few clicks your program for
-        sale to the millions
-    </h5>
-    <form>
-        <p>Remember to make the title something catchy</p>
-        <input placeholder="title for you program" name="titel" id="titel" type ="text"required>
-        <p>Please seperate features with a ,</p>
-        <p>Like writing,mathematics,javascript</p>
-        <input placeholder="Features" name="features" id="features" required>
-        <p>Please make you description as descriptive as posible</p>
-        <input placeholder="Description" name="description" id="description" required>
-        <div id="wrapper">
-        
-            <input type="file">
-            <input type="submit" value="Upload File">
-        </form>
-        <div id="outcome"></div>
-</div>
-
-<div class="page" id="minprofil">
-    <div class="wrapper">
-        <nav>
-            <div class="topnav">
-                <ul>
-                    <li id="home"><a href="#hjem">Home</a></li>
-                    <li id="market"><a href="#marked">Market</a></li>
-                    <li id="publish"><a href="#frigørsoftware">Publish software</a></li>
-                    <li id="profile" class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">My Profile</a>
-                            <div class="dropdown-content">
-                                <a href="#minprofil">My Profile</a>
-                            <a href="#" onclick="logud()">Sign Out</a>
-                            </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <h3>You can change your account-information here :D</h3>
-        <form action="">
-            <!-- i "action" skal der skrives, det sted, daten skal sendes til-->
-            <div class="signin">
-                <hr>
-                <div class="column">
-                    <label for="uname"><b>Username</b></label>
-                    <div class="space">
-                        <input type="username" placeholder="Enter Username" name="uname" id="uname" required>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <label for="psw"><b>Password</b></label>
-                    <div class="space">
-                        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <label for="newpsw"><b>New Password</b></label>
-                    <div class="space">
-                        <input type="password" placeholder="Enter New Password" name="newpsw" id="newpsw" required>
-                    </div>
-                </div>
-                <hr>
-
-                <button type="submit" class="button">Submit</button>
-
-            </div>
-        </form>
-    </div>
-</div>
-
-        <script>
-    logud = () =>{location.replace("login.html");}
-
-        </script>
   </body>
 </html>

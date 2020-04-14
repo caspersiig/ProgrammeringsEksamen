@@ -69,6 +69,8 @@
 
     //Laver en funktion, der kaldes når Når submit knappen trykkes på
       function regiData(event){
+         
+        //Den forhindrer at der er en default, der sendes fremfor det der er skrevet i felter
           event.preventDefault();
           var dataUname = document.getElementById('uname');
           var dataPass = document.getElementById('psw');

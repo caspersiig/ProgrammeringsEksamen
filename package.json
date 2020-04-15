@@ -4,7 +4,7 @@
   "description": "This is a very funny program, it makes me go LOL xd",
   "main": "main.js",
   "scripts": {
-    "start": "electron login.html"
+    "start": "electron mainPage2.html"
   },
   "author": "Natasja Damsbjerg",
   "license": "ISC",

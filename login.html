@@ -52,7 +52,7 @@
     </div>
 
     <script>
-        var socket = io.connect('http://185.107.15.247:8080');
+        var socket = io.connect('http://185.107.15.247:8080', {secure: true});
 
         function loginData(event) {
             event.preventDefault();

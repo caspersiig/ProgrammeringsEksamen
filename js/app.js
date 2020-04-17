@@ -8,6 +8,7 @@ $(function(){
         $("input[type=submit]").click(function(evt){
           var file = $("input[type=file]")[0].files[0];
       
+          //Her hentes dataen fra elementerne i titel, feature og description felterne på mainpage siden via document.getElementById metoden
               var dataTitle = document.getElementById('titel');
               var dataFeature = document.getElementById('features');
               var dataDescription = document.getElementById('description');

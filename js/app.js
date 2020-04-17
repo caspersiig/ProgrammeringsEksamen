@@ -13,6 +13,7 @@ $(function(){
               var dataFeature = document.getElementById('features');
               var dataDescription = document.getElementById('description');
       
+              //laver en datapakke, der indeholder værdierne fra inputfelterne
                 fileData = {
                   title: dataTitle.value,
                   feature: dataFeature.value,
@@ -21,11 +22,12 @@ $(function(){
       
                 socket.emit("fileData", fileData);
 
+                //Kalder delivery funktion til at sende filen
           delivery.send(file);
           evt.preventDefault();
         });
       });
-  
+        //Når filen successfuldt er afsendt
       delivery.on('send.success',function(fileUID){
         console.log("file was successfully sent.");
       });

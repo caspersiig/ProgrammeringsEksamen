@@ -32,9 +32,9 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: hotpink;
+    background-color: lightskyblue;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px red;
+    box-shadow: 0px 8px 16px 0px grey;
     z-index: 1;
 }
 
@@ -47,7 +47,7 @@ li.dropdown {
 }
 
 .dropdown-content a:hover {
-    background-color: grey;
+    background-color: rgb(93, 173, 223);
 }
 
 .dropdown:hover

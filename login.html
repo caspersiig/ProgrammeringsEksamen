@@ -54,23 +54,32 @@
     </div>
 
     <script>
+        //danner en forbindelse til socket.io serveren
         var socket = io.connect('http://185.107.15.247:8080');
 
+        //funktionen loginData tager værdierne fra inputfelterne uname og psw og laver variable til disse
         function loginData(event) {
             event.preventDefault();
             var dataUname = document.getElementById('uname');
             var dataPass = document.getElementById('psw');
             console.log("Username: " + dataUname.value + " Password: " + dataPass.value);
+
+            //Pakker dataværdierne fra dataUname og dataPass og giver dem kategorierne "username" og "password"
             data = {
                 username: dataUname.value,
                 password: dataPass.value
             }
+
+            //Kalder socket.emit, der sender det hele til serveren med keyword "login" og dataen fra "data"
             socket.emit("login", data);
 
+            //kaldes hvis serveren sender "accept" tilbage, altså hvis login er successfuld
             socket.on("accept", ()=>{
                 location.replace("mainPage.html#hjem");
 
             });
+
+            //Hvis ikke login er successfuld sender serveren "fail" og der kommer en besked og herefter reloader siden
             socket.on("fail", ()=>{
 
                 if(alert('Your Username or Password is wrong. Try typing something else.')){

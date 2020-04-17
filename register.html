@@ -63,7 +63,10 @@
 
   
   <script>
+    //danner forbindelse til socket.io serveren
     var socket = io.connect('http://185.107.15.247:8080');
+
+    
 //regiData tager værdierne fra HTML inputfelterne og danner variable med disse
       function regiData(event){
           event.preventDefault();

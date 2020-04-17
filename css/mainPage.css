@@ -1,3 +1,5 @@
+/*CSS for navbaren*/
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -53,33 +55,7 @@ li.dropdown {
     display: block;
 }
 
-.topnav input[type=search] {
-    padding: 6px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    border: none;
-}
-
-
-.page {
-   width: 100vw;
-   height: 100vh;
-   position: fixed;
-   top: 0;
-   left: -100vw;
-   overflow-y: auto;
-   z-index: 0;
-   background-color: hsl(0,0%,100%);
-}
-
- .page:target {
-   left: 0vw;
-   z-index: 1;
-}
-
-.description {
-    height: 4000px !important;
-}
+/*CSS for My Profile*/
 
 input[type=username],
 input[type=password] {
@@ -105,4 +81,39 @@ input[type=password]:focus {
 
 .button:hover {
     opacity: 0.9;
+}
+
+/*CSS for publish.html*/
+
+#titel,
+#features,
+#description {
+    width: 20%;
+    padding: 7px;
+    margin: 2px 0 10px 0;
+    border-radius: 5px;
+    background: rgb(236, 234, 234);
+}
+
+
+#titel:focus,
+#features:focus,
+#description:focus {
+    background-color: rgb(202, 198, 198);
+    outline: none;
+}
+
+input[type=submit] {
+    width: 15%;
+    background-color: lightskyblue;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    opacity: 0.9;
+}
+
+p {
+    font-family: Georgia;
 }

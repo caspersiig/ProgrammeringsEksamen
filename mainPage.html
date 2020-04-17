@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-        <title>This is our site</title>
+        <title>Casper PD</title>
         <link href="css/mainPage.css" rel="stylesheet" type="text/css"></link>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -9,8 +9,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
         <script src="js/delivery.js"></script>
   </head>
+
+  <!--Kalder funktionen startup, når siden loades-->
   <body onload="startup()">
     <nav>
+        <!--Opsætter navigationsbaren på alle sider-->
         <div class="topnav">
             <ul>
                 <li id="home"><a class="nav-item" href="home.html">Home</a></li>
@@ -26,6 +29,7 @@
             </ul>
         </div>
     </nav>
+    <!--Her indsættes indholdet fra html-siderne i mainPageContent-->
     <div id="page">
 
     </div>
@@ -44,6 +48,7 @@
             $("#page").load("mainPageContent/" + $(this).attr("href"));
         });
 
+        //Sender en til login-siden når man klikker på "Sign out", og logger ud
         signOut = () =>{location.replace("login.html");}
     </script>
 

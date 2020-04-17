@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <title>Casper PD</title>
+        <link href="css/mainPage.css" rel="stylesheet" type="text/css"></link>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+        <script src="js/delivery.js"></script>
+  </head>
+
+  <!--Kalder funktionen startup, når siden loades-->
+  <body onload="startup()">
+    <nav>
+        <!--Opsætter navigationsbaren på alle sider-->
+        <div class="topnav">
+            <ul>
+                <li id="home"><a class="nav-item" href="home.html">Home</a></li>
+                <li id="market"><a class="nav-item" href="market.html">Market</a></li>
+                <li id="publish"><a class="nav-item" href="publish.html">Publish software</a></li>
+                <!--Her laves en dropdown-menu-->
+                <li id="profile" class="dropdown">
+                    <a class="dropbtn">My Profile</a>
+                        <!--Definere det indhold der er på dropdown-menuen-->
+                        <div class="dropdown-content">
+                            <a class="nav-item" href="profile.html">My Profile</a>
+                            <!--Når man klikke på sign out kalder den funktionen signOut nede i scriptet-->
+                            <a onclick="signOut()">Sign Out</a>
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Her indsættes indholdet fra html-siderne i mainPageContent-->
+    <div id="page">
+
+    </div>
+
+    <script>
+        function startup(){
+            //Loader home-page på startup
+            $("#page").load("mainPageContent/home.html");
+        }
+
+        $(".nav-item").click(function (event){
+            //Undgå at linket tager dig til en ny side
+            event.preventDefault();
+            
+            //Loader html'en der er på href-linket
+            $("#page").load("mainPageContent/" + $(this).attr("href"));
+        });
+
+        //Sender en til login-siden når man klikker på "Sign out", og logger ud
+        function signOut() {
+            location.replace("login.html");
+        }
+    </script>
+
+  </body>
+</html>

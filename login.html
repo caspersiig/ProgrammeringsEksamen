@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    </link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="page">
+
+        <!--når submit knappen aktiveres kaldes funktionen loginData-->
+        <form action="" id="loginForm" onsubmit="loginData(event)">
+            
+            <div class="signin">
+                <h1>Sign In</h1>
+                <hr>
+                <!--Opsætter formen for at logge ind, med username og password-->
+                <div class="column">
+                    <label for="uname"><b>Username</b></label>
+                    <div class="space">
+                        <input type="username" placeholder="Enter Username" name="uname" id="uname" required>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <label for="psw"><b>Password</b></label>
+                    <div class="space">
+                        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                    </div>
+                </div>
+
+                <!--Hvis oplysningerne er forkerte kalder den wrongMsg, så der kommer en popup-->
+                <div class="wrong" id="wrongPass">
+                <p id="wrongMsg"></p>
+                </div>
+
+                <hr>
+
+                <!--Laver knappen til at logge ind-->
+                <button type="submit" class="button">Login</button>
+
+                <!--Laver en checkbox, så den kan huske ens oplysninger-->
+                <div class="remember">
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <!--Hvis man ikke har en account, linkes man til register.html-->
+                <div class="register">
+                    <p>Don't have an account? <a href="register.html">Register</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        //danner en forbindelse til socket.io serveren
+        var socket = io.connect('http://185.107.15.247:8080');
+
+        //funktionen loginData tager værdierne fra inputfelterne uname og psw og laver variable til disse
+        function loginData(event) {
+            event.preventDefault();
+            var dataUname = document.getElementById('uname');
+            var dataPass = document.getElementById('psw');
+            console.log("Username: " + dataUname.value + " Password: " + dataPass.value);
+
+            //Pakker dataværdierne fra dataUname og dataPass og giver dem kategorierne "username" og "password"
+            data = {
+                username: dataUname.value,
+                password: dataPass.value
+            }
+
+            //Kalder socket.emit, der sender det hele til serveren med keyword "login" og dataen fra "data"
+            socket.emit("login", data);
+
+            //kaldes hvis serveren sender "accept" tilbage, altså hvis login er successfuld
+            socket.on("accept", ()=>{
+                location.replace("mainPage.html#hjem");
+
+            });
+
+            //Hvis ikke login er successfuld sender serveren "fail" og der kommer en besked og herefter reloader siden
+            socket.on("fail", ()=>{
+
+                if(alert('Your Username or Password is wrong. Try typing something else.')){
+
+              } else {
+                  window.location.reload(true);
+              }
+
+            });
+
+        }
+    </script>
+</body>
+
+</html>

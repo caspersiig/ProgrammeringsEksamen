@@ -1,0 +1,14 @@
+{
+  "name": "your-app",
+  "version": "7.9.2",
+  "description": "This is a very funny program, it makes me go LOL xd",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron login.html"
+  },
+  "author": "Natasja Damsbjerg",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^8.1.1"
+  }
+}

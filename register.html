@@ -11,8 +11,9 @@
 
 <body>
   <div class="page">
+
+  <!--Kalder funktionen "regiData" når submit knappen aktiveres-->
     <form action="" id="regiForm" onSubmit="regiData(event)">
-      <!-- der skal i "action" stå destinationen for det sted, hvor login informationen ligger / skal ligge-->
       <div class="register">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
@@ -63,7 +64,7 @@
   
   <script>
     var socket = io.connect('http://185.107.15.247:8080');
-
+//regiData tager værdierne fra HTML inputfelterne og danner variable med disse
       function regiData(event){
           event.preventDefault();
           var dataUname = document.getElementById('uname');
@@ -72,19 +73,22 @@
           console.log("Username: "+ dataUname.value);
           console.log("Password: " + dataPass.value);
           console.log("Email: " + dataEmail.value);
-
+//dataRegi tager værdierne af dataUname, dataPass og dataEmail og pakker den sammen under datasamlingen dataRegi med underpunkter som vist
             dataRegi = {
                 username: dataUname.value,
                 password: dataPass.value,
                 email: dataEmail.value
             }
 
+            //socket.emit sender "register" til serveren, så den kan bearbejdes efter det keyword og sender så dataen i dataRegi med sammen emd det keyword
           socket.emit("register", dataRegi);
 
+          //Kaldes når registreringen er successfuld
           socket.on("regiSuccess", ()=>{
             window.location.replace("login.html")
           });
 
+          //Når registrering fejler reloades siden
           socket.on("regiFail", ()=>{
             window.location.reload(true);
           });

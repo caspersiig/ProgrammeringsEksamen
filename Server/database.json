@@ -1,0 +1,14 @@
+{
+    "profiles": [{
+        "username": "admin",
+        "email": "admin@admin.dk",
+        "password": "admin",
+        "købteprogrammer": []
+    }],
+    "annocer": [{
+        "titel": "soteringsprogram",
+        "deskription": "meget godt til at sortere",
+        "features": "sortering,skrivebord,C#",
+        "filnavn": "sorteringsprogram.exe"
+    }]
+}

@@ -18,6 +18,7 @@
             <div class="signin">
                 <h1>Sign In</h1>
                 <hr>
+                <!--Opsætter formen for at logge ind, med username og password-->
                 <div class="column">
                     <label for="uname"><b>Username</b></label>
                     <div class="space">
@@ -32,20 +33,24 @@
                     </div>
                 </div>
 
+                <!--Hvis oplysningerne er forkerte kalder den wrongMsg, så der kommer en popup-->
                 <div class="wrong" id="wrongPass">
                 <p id="wrongMsg"></p>
                 </div>
 
                 <hr>
 
+                <!--Laver knappen til at logge ind-->
                 <button type="submit" class="button">Login</button>
 
+                <!--Laver en checkbox, så den kan huske ens oplysninger-->
                 <div class="remember">
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
                 </div>
 
+                <!--Hvis man ikke har en account, linkes man til register.html-->
                 <div class="register">
                     <p>Don't have an account? <a href="register.html">Register</a></p>
                 </div>

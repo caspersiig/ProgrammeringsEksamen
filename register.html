@@ -11,8 +11,8 @@
 
 <body>
   <div class="page">
-    <!--Formen har fået et ID, der kan kaldes senere og den kalder et "Event" ved navn "regiData" når submit knappen bliver aktiveret-->
     <form action="" id="regiForm" onSubmit="regiData(event)">
+      <!-- der skal i "action" stå destinationen for det sted, hvor login informationen ligger / skal ligge-->
       <div class="register">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
@@ -62,15 +62,9 @@
 
   
   <script>
-
-    //laver en connection til serverens IP
     var socket = io.connect('http://185.107.15.247:8080');
 
-
-    //Laver en funktion, der kaldes når Når submit knappen trykkes på
       function regiData(event){
-         
-        //Den forhindrer at der er en default, der sendes fremfor det der er skrevet i felter
           event.preventDefault();
           var dataUname = document.getElementById('uname');
           var dataPass = document.getElementById('psw');
